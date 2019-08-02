@@ -1,6 +1,6 @@
 no-response-timeout: 15
 box:
-    id: openjdk:11-jdk
+    id: maven
 build:
   steps:
     - script:
