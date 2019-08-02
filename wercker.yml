@@ -1,5 +1,6 @@
 no-response-timeout: 15
-image: fabric8/s2i-java
+box:
+    id: openjdk
 build:
   steps:
     - script:
