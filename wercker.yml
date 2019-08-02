@@ -1,5 +1,5 @@
 no-response-timeout: 15
-box: combient/java-mvn
+box: keckelt/openjdk11-alpine
 build:
   steps:
     - script:
