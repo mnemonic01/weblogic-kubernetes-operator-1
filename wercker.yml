@@ -1,5 +1,5 @@
 no-response-timeout: 15
-box: keckelt/openjdk11-alpine
+box: fabric8/s2i-java
 build:
   steps:
     - script:
