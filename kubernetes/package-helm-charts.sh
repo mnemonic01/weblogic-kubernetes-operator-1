@@ -11,15 +11,22 @@ SCRIPTPATH="$( cd "$(dirname "$0")" > /dev/null 2>&1 ; pwd -P )"
 WOCHARTPATH="$SCRIPTPATH/charts/weblogic-operator"
 
 
-install_helm () {
+#install_helm () {
 
   # Download and install helm
-curl -o "${HELM_TARBALL}" "${HELM_URL}/${HELM_TARBALL}"
-tar zxvf ${HELM_TARBALL}
-PATH=${PATH}:${HELM_EXTRACTED_ARCHIVE}
-export PATH
-rm -f ${HELM_TARBALL}
+#curl -o "${HELM_TARBALL}" "${HELM_URL}/${HELM_TARBALL}"
+#tar zxvf ${HELM_TARBALL}
+#PATH="$PATH}:$SCRIPTPATH:${HELM_EXTRACTED_ARCHIVE}
+#export PATH
+#rm -f ${HELM_TARBALL}
+#}
+
+install_helm () {
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > $SCRIPTPATH/get_helm.sh
+chmod 700 $SCRIPTPATH/get_helm.sh
+$SCRIPTPATH/get_helm.sh
 }
+
 install_helm
 
 
@@ -52,7 +59,7 @@ then
     mkdir $SCRIPTPATH/../docs/charts
   fi
   mv -f $helm_package $SCRIPTPATH/../docs/charts/
-  helm repo index $SCRIPTPATH/../docs/charts/ --url https://oracle.github.io/weblogic-kubernetes-operator/charts
+  ${PATH}/helm repo index $SCRIPTPATH/../docs/charts/ --url https://oracle.github.io/weblogic-kubernetes-operator/charts
 else
   rm $helm_package
 fi;
