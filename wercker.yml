@@ -9,7 +9,7 @@ build:
 
 build-domain-on-pv:
   box:
-      id: oraclelinux
+      id:  oraclelinux
       cmd: /bin/sh
   docker: true
   steps:
