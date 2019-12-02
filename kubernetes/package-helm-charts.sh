@@ -59,7 +59,7 @@ then
     mkdir $SCRIPTPATH/../docs/charts
   fi
   mv -f $helm_package $SCRIPTPATH/../docs/charts/
-  ${PATH}/helm repo index $SCRIPTPATH/../docs/charts/ --url https://oracle.github.io/weblogic-kubernetes-operator/charts
+  /usr/local/bin/helm repo index $SCRIPTPATH/../docs/charts/ --url https://oracle.github.io/weblogic-kubernetes-operator/charts
 else
   rm $helm_package
 fi;
