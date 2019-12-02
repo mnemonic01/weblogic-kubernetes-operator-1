@@ -2,6 +2,31 @@
 # Copyright 2019, Oracle Corporation and/or its affiliates.  All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
 
+# Helm 
+REPO_URL="${BUCKET}/stable/"
+HELM_URL=https://storage.googleapis.com/kubernetes-helm
+HELM_TARBALL=helm-v2.7.2-linux-amd64.tar.gz
+HELM_EXTRACTED_ARCHIVE="$(pwd)/linux-amd64/"
+
+install_helm () {
+
+  # Download and install helm
+  curl -o "${HELM_TARBALL}" "${HELM_URL}/${HELM_TARBALL}"
+  tar zxvf ${HELM_TARBALL}
+  PATH=${PATH}:${HELM_EXTRACTED_ARCHIVE}
+  export PATH
+  rm -f ${HELM_TARBALL}
+
+  # Install helm s3 plugin if not installed
+  if [[ $(helm plugin list | grep "^s3") == "" ]]; then
+    helm plugin install https://github.com/hypnoglow/helm-s3.git
+  fi
+}
+
+install_helm
+
+
+
 SCRIPTPATH="$( cd "$(dirname "$0")" > /dev/null 2>&1 ; pwd -P )"
 WOCHARTPATH="$SCRIPTPATH/charts/weblogic-operator"
 
