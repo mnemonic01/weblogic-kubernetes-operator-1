@@ -3,8 +3,8 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
 
 # Helm 
-REPO_URL="${BUCKET}/stable/"
-HELM_URL=https://storage.googleapis.com/kubernetes-helm
+
+HELM_URL=https://get.helm.sh
 HELM_TARBALL=helm-v2.7.2-linux-amd64.tar.gz
 HELM_EXTRACTED_ARCHIVE="$(pwd)/linux-amd64/"
 
