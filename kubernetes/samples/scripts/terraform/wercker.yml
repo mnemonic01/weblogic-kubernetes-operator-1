@@ -1,0 +1,8 @@
+no-response-timeout: 15
+box:
+    id: alpine
+build:
+  steps:
+    - script:
+        name: oke create
+        code: oke.create.sh
